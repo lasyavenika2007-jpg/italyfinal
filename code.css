@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Font family relies on the Poppins link being in the HTML <head> */
     font-family: "Poppins", sans-serif;
 }
 
@@ -14,6 +15,8 @@ body {
 
 /* HEADER */
 #main-header {
+    /* Added vendor prefix for better cross-browser compatibility */
+    background: -webkit-linear-gradient(120deg, #009246, #ffffff, #ce2b37);
     background: linear-gradient(120deg, #009246, #ffffff, #ce2b37);
     text-align: center;
     padding: 45px 20px;
@@ -91,6 +94,7 @@ nav a:hover {
 .intro-img {
     flex: 1;
     text-align: right;
+    min-width: 280px; /* Ensures image container has a minimum size */
 }
 
 .intro-img img {
@@ -261,13 +265,25 @@ footer {
         flex-direction: column;
         text-align: center;
     }
+    
+    .intro-img {
+        width: 100%; /* Ensures image container spans full width when stacked */
+        text-align: center; 
+    }
 
     .intro-img img {
-        border-radius: 0;
+        /* Adjusted border-radius for when the image is placed below the text */
+        border-radius: 0 0 15px 15px;
+        margin-top: 20px; /* Add space between text and image */
+        max-width: 100%;
     }
 
     nav a {
         display: inline-block;
         margin: 5px;
+    }
+    
+    .media-grid {
+        grid-template-columns: 1fr; /* Stack media players vertically on mobile */
     }
 }
